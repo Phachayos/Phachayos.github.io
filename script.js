@@ -24,3 +24,16 @@ sections.forEach(section => {
   section.classList.add('hidden');
   observer.observe(section);
 });
+
+// Hide header on scroll down
+let lastScrollY = window.scrollY;
+const header = document.getElementById('mainHeader');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > lastScrollY) {
+    header.classList.add('hide');
+  } else {
+    header.classList.remove('hide');
+  }
+  lastScrollY = window.scrollY;
+});
